@@ -96,33 +96,33 @@ def send_user_text(message):
         bot.send_photo(message.chat.id, photo, caption=desc, parse_mode = 'html')
 
     elif message.text == 'americano' or message.text == 'Americano':
-        photo = open('/Users/nursultan/Desktop/telebot/static/fff3.jpeg', 'rb')
+        photo = open('static/fff3.jpeg', 'rb')
         desc = '<b>Americano</b>\n\nEspresso shots topped with hot water create a light layer of crema culminating in this wonderfully rich cup with depth and nuance.\n\n15 calories, 0g sugar, 0g fat\n\nprice: $3.05'
         bot.send_photo(message.chat.id, photo, caption=desc, parse_mode = 'html')
     
     elif message.text == '1' or message.text == '1️⃣':
-        audio = audio=open('/Users/nursultan/Desktop/telebot/static/Kanye West - Closed On Sunday Lp0q1wWe6XI.m4a', 'rb')
+        audio = audio=open('static/Kanye West - Closed On Sunday Lp0q1wWe6XI.m4a', 'rb')
         bot.send_audio(message.chat.id, audio)
 
     elif message.text == '2' or message.text == '2️⃣':
-        audio = audio=open('/Users/nursultan/Desktop/telebot/static/17  Sweetbox - Gonna Be Alright.mp3', 'rb')
+        audio = audio=open('static/17  Sweetbox - Gonna Be Alright.mp3', 'rb')
         bot.send_audio(message.chat.id, audio)
     
     elif message.text == '3' or message.text == '3️⃣':
-        audio=open('/Users/nursultan/Desktop/telebot/static/Death bed coffee   Powfu.mp3', 'rb')
+        audio=open('static/Death bed coffee   Powfu.mp3', 'rb')
         bot.send_audio(message.chat.id, audio)
     
     elif message.text == '4' or message.text == '4️⃣':
-        audio=open('/Users/nursultan/Desktop/telebot/static/Cafe Con Leche - Lofi Coffee.m4a', 'rb')
+        audio=open('static/Cafe Con Leche - Lofi Coffee.m4a', 'rb')
         bot.send_audio(message.chat.id, audio)
     
     elif message.text == 'sticker' or message.text == 'Sticker':
-        sticker=open('/Users/nursultan/Desktop/telebot/static/sticker.tgs', 'rb')
+        sticker=open('static/sticker.tgs', 'rb')
         bot.send_sticker(message.chat.id, sticker)
     
     else:
         bot.send_message(message.chat.id, 'I don\'understand you! 😕\nSend "/help" to get help', parse_mode='html')
-    
+
 
 
 # @bot.message_handler(content_types=['photo'])
