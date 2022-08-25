@@ -73,9 +73,17 @@ def help(message):
     bot.send_message(message.chat.id, '⬇️ We suggest you to come <b>back</b> ⬇️', reply_markup=markup, parse_mode = 'html')
     bot.send_message(message.chat.id, 'If you find any errors please contacts us\nOur email: nrsltnsdkv@gmail.com', parse_mode='html')
 
+
 @bot.message_handler(content_types=['sticker'])
 def sticker_handler(message):
     bot.send_sticker(message.chat.id, message.sticker.file_id)
+
+@bot.message_handler(commands=['kinder'])
+def website(message):
+    markup = types.InlineKeyboardMarkup()
+    markup.add(types.InlineKeyboardButton(text='Press to button', url='https://www.detmir.ru/catalog/index/name/lego_ninjago/?_ga=2.264155148.1298244429.1661406145-2081334604.1661406145'))
+    bot.send_message(message.chat.id, 'is is GREAT !!!! im can give link on site heh', reply_markup=markup)
+
 
 @bot.message_handler()
 def send_user_text(message): 
@@ -133,7 +141,9 @@ def send_user_text(message):
 #coffee fm - radio
 #coffee stickers - stickers
 
-print('Bot is running, don\'t disturb!')
+
+# print('Bot is running, don\'t disturb!')
+
 bot.polling(none_stop=True)
 
 
