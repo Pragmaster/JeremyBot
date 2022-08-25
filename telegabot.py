@@ -28,20 +28,22 @@ def back(message):
     about = types.KeyboardButton('/about')
     website = types.KeyboardButton('/website')
     menu = types.KeyboardButton('/menu')
-    markup.add(start, about, website, menu)
+    coffeefm = types.KeyboardButton('/coffeefm')
+    markup.add(start, about, website, coffeefm, menu)
     bot.send_message(message.chat.id, '⬇️ Your button bar has been updated ⬇️', reply_markup=markup)
 
 @bot.message_handler(commands=['coffeefm'])
 def back(message):
-    bot.send_message(message.chat.id, 'It\'s <b>CoffeeFM</b>, what can be better than listen to music while you drink a cup of your favorite coffee 🎶\n⬇️ Choose the Music below ⬇️', reply_markup=markup, parse_mode = 'html')
-    bot.send_message(message.chat.id, '1️⃣ Kanye West - Closed on sunday\n2️⃣ Sweetbox - Gonna Be Alright\n3️⃣ Powfu - Death bed\n4️⃣ Cafe Con Leche - LoFi Coffee', reply_markup=markup, parse_mode = 'html')  
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2, one_time_keyboard=True)   
+    bot.send_message(message.chat.id, 'It\'s <b>CoffeeFM</b>, what can be better than listen to music while you drink a cup of your favorite coffee 🎶', parse_mode = 'html')
+    bot.send_message(message.chat.id, '<b>Music</b>\n1️⃣ Kanye West - Closed on sunday\n2️⃣ Sweetbox - Gonna Be Alright\n3️⃣ Powfu - Death bed\n4️⃣ Cafe Con Leche - LoFi Coffee', parse_mode = 'html')  
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=5, one_time_keyboard=True)   
     one = types.KeyboardButton('1')
     two = types.KeyboardButton('2')
     three = types.KeyboardButton('3')
     four = types.KeyboardButton('4')
-    markup.add(one, two, three, four)
-    bot.send_message(message.chat.id, '⬇️ Your button bar has been updated ⬇️', reply_markup=markup)
+    back = types.KeyboardButton('/back')
+    markup.add(one, two, three, four, back)
+    bot.send_message(message.chat.id, '⬇️ Choose the Music below ⬇️', reply_markup=markup)
 
 @bot.message_handler(commands=['menu'])
 def about(message):
