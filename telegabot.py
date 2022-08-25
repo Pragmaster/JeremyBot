@@ -13,23 +13,23 @@ def start(message):
     # bot.send_message(message.chat.id, 'I can send you 2 songs: <b>more</b> and <b>goona be alright</b>', parse_mode='html')
     # bot.send_message(message.chat.id, 'I can calculate gb of sended photo', parse_mode='html')
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2, one_time_keyboard=True)   
-    start = types.KeyboardButton('/start')
+    # start = types.KeyboardButton('/start')
     about = types.KeyboardButton('/about')
     website = types.KeyboardButton('/website')
     menu = types.KeyboardButton('/menu')
     coffeefm = types.KeyboardButton('/coffeefm')
-    markup.add(start, about, website, coffeefm, menu)
+    markup.add(about, website, coffeefm, menu)
     bot.send_message(message.chat.id, '⬇️ Check your button bar ⬇️', reply_markup=markup)
 
 @bot.message_handler(commands=['back'])
 def back(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2, one_time_keyboard=True)   
-    start = types.KeyboardButton('/start')
+    # start = types.KeyboardButton('/start')
     about = types.KeyboardButton('/about')
     website = types.KeyboardButton('/website')
     menu = types.KeyboardButton('/menu')
     coffeefm = types.KeyboardButton('/coffeefm')
-    markup.add(start, about, website, coffeefm, menu)
+    markup.add(about, website, coffeefm, menu)
     bot.send_message(message.chat.id, '⬇️ Your button bar has been updated ⬇️', reply_markup=markup)
 
 @bot.message_handler(commands=['coffeefm'])
@@ -73,6 +73,9 @@ def help(message):
     bot.send_message(message.chat.id, '⬇️ We suggest you to come <b>back</b> ⬇️', reply_markup=markup, parse_mode = 'html')
     bot.send_message(message.chat.id, 'If you find any errors please contacts us\nOur email: nrsltnsdkv@gmail.com', parse_mode='html')
 
+@bot.message_handler(content_types=['sticker'])
+def sticker_handler(message):
+    bot.send_sticker(message.chat.id, message.sticker.file_id)
 
 @bot.message_handler()
 def send_user_text(message): 
@@ -80,44 +83,44 @@ def send_user_text(message):
         bot.send_message(message.chat.id, f'{message.text} to you too!', parse_mode = 'html')
 
     elif message.text == 'cappuccino' or message.text == 'Cappuccino':
-        photo = open('/Users/nursultan/Desktop/telebot/static/fff1.jpeg', 'rb')
+        photo = open('static/fff1.jpeg', 'rb')
         desc = '<b>Cappuccino</b>\n\nDark, rich espresso lies in wait under a smoothed and stretched layer of thick milk foam. An alchemy of barista artistry and craft.\n\n140 calories, 12g sugar, 5g fat\n\nprice: $4.05'
         bot.send_photo(message.chat.id, photo, caption=desc, parse_mode = 'html')
+        
     
     elif message.text == 'espresso' or message.text == 'Espresso':
-        photo = open('/Users/nursultan/Desktop/telebot/static/fff2.jpeg', 'rb')
+        photo = open('static/fff2.jpeg', 'rb')
         desc = '<b>Espresso</b>\n\nOur smooth signature Espresso Roast with rich flavor and caramelly sweetness is at the very heart of everything we do.\n\n10 calories, 0g sugar, 0g fat\n\nprice: $2.35'
         bot.send_photo(message.chat.id, photo, caption=desc, parse_mode = 'html')
 
     elif message.text == 'americano' or message.text == 'Americano':
-        photo = open('/Users/nursultan/Desktop/telebot/static/fff3.jpeg', 'rb')
+        photo = open('static/fff3.jpeg', 'rb')
         desc = '<b>Americano</b>\n\nEspresso shots topped with hot water create a light layer of crema culminating in this wonderfully rich cup with depth and nuance.\n\n15 calories, 0g sugar, 0g fat\n\nprice: $3.05'
         bot.send_photo(message.chat.id, photo, caption=desc, parse_mode = 'html')
     
     elif message.text == '1' or message.text == '1️⃣':
-        audio = audio=open('/Users/nursultan/Desktop/telebot/static/Kanye West - Closed On Sunday Lp0q1wWe6XI.m4a', 'rb')
+        audio = audio=open('static/Kanye West - Closed On Sunday Lp0q1wWe6XI.m4a', 'rb')
         bot.send_audio(message.chat.id, audio)
 
     elif message.text == '2' or message.text == '2️⃣':
-        audio = audio=open('/Users/nursultan/Desktop/telebot/static/17  Sweetbox - Gonna Be Alright.mp3', 'rb')
+        audio = audio=open('static/17  Sweetbox - Gonna Be Alright.mp3', 'rb')
         bot.send_audio(message.chat.id, audio)
     
     elif message.text == '3' or message.text == '3️⃣':
-        audio=open('/Users/nursultan/Desktop/telebot/static/Death bed coffee   Powfu.mp3', 'rb')
+        audio=open('static/Death bed coffee   Powfu.mp3', 'rb')
         bot.send_audio(message.chat.id, audio)
     
     elif message.text == '4' or message.text == '4️⃣':
-        audio=open('/Users/nursultan/Desktop/telebot/static/Cafe Con Leche - Lofi Coffee.m4a', 'rb')
+        audio=open('static/Cafe Con Leche - Lofi Coffee.m4a', 'rb')
         bot.send_audio(message.chat.id, audio)
     
     elif message.text == 'sticker' or message.text == 'Sticker':
-        sticker=open('/Users/nursultan/Desktop/telebot/static/sticker.tgs', 'rb')
+        sticker=open('static/sticker.tgs', 'rb')
         bot.send_sticker(message.chat.id, sticker)
     
     else:
         bot.send_message(message.chat.id, 'I don\'understand you! 😕\nSend "/help" to get help', parse_mode='html')
     
-
 
 # @bot.message_handler(content_types=['photo'])
 # def get_user_photo(message):
@@ -130,6 +133,8 @@ def send_user_text(message):
 #coffee fm - radio
 #coffee stickers - stickers
 
+print('Bot is running, don\'t disturb!')
 bot.polling(none_stop=True)
+
 
 # Hello world!
