@@ -128,7 +128,7 @@ def send_user_text(message):
     
     else:
         bot.send_message(message.chat.id, 'I don\'understand you! 😕\nSend "/help" to get help', parse_mode='html')
-    
+
 
 # @bot.message_handler(content_types=['photo'])
 # def get_user_photo(message):
